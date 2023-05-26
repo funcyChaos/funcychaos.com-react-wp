@@ -1,0 +1,16 @@
+.app-grid{
+	min-height: 100vh;
+
+	display: grid;
+	grid-template-columns: 1fr 5fr 1fr;
+	grid-template-rows: 100px auto 100px;
+	grid-template-areas: 
+		"header header header"
+		". content ."
+		"footer footer footer"
+	;
+	row-gap: 10px;
+
+	background-color: black;
+	color: white;
+}

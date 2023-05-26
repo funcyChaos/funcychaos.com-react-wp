@@ -1,20 +1,29 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+// import logo from "./logo.svg";
+import logo from './funcyLogo-sm.png'
+import "./scss/App.scss";
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>react-src/src/App.js</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
-        </div>
+			<div className="app-grid">
+				<header>
+					<div className="logo">
+						<img src={logo} alt="" />
+					</div>
+					<h2>funcyChaos.com</h2>
+					<div className="menu">
+						<a href="#home">Home</a>
+						<a href="#blog">Blog</a>
+						<a href="#about">About</a>
+					</div>
+				</header>
+				<main>
+
+				</main>
+				<footer>
+
+				</footer>
+			</div>
     );
 }
 
