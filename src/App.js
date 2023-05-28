@@ -7,10 +7,10 @@ import './scss/App.scss'
 
 function App() {
 	useEffect(()=>{
-		const loc = location.pathname.substring(1)
+		const loc = window.location.pathname.substring(1)
 		if(!loc)document.title = 'funcyChaos'
 		else document.title = `fc-${loc}`
-	}, [location])
+	}, [])
 
     return (
 			<div className="app-grid">
