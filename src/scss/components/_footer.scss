@@ -1,4 +1,8 @@
 footer{
 	grid-area: footer;
 	border: gray dashed;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }

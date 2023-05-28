@@ -1,35 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import Header from './components/Header'
 import Footer from './components/Footer'
+import Blog from './components/Blog'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import logo from './funcyLogo-sm.png'
 import './scss/App.scss'
 
 function App() {
+	useEffect(()=>{
+		const loc = location.pathname.substring(1)
+		if(!loc)document.title = 'funcyChaos'
+		else document.title = `fc-${loc}`
+	}, [location])
+
     return (
 			<div className="app-grid">
-				<header>
-					<div className="logo">
-						<img src={logo} alt="" />
-					</div>
-					<h2>funcyChaos.com</h2>
-					<div className="menu">
-						<a href="/">Home</a>
-						<a href="/blog">Blog</a>
-						<a href="/about">About</a>
-					</div>
-				</header>
+				<Header />
 				<main>
 					<BrowserRouter>
 						<Routes>
-							<Route path="/" element={
-								<h1>Hello, World!</h1>
-							} />
-							<Route path="/blog" element={
-								<h1>Blog!</h1>
-							} />
-							<Route path="/about" element={
-								<h1>about!</h1>
-							} />
+							<Route path="/" element={<h1>Hello, World!</h1>} />
+							<Route path="/blog" element={<Blog />} />
+							<Route path="/about" element={<h1>about!</h1>} />
 						</Routes>
 					</BrowserRouter>
 				</main>
