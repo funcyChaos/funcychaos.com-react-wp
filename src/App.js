@@ -2,8 +2,10 @@ import React, {useEffect} from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Blog from './components/Blog'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './scss/App.scss'
+import PostsList from './components/PostsList'
+import Post from './components/Post'
 
 function App() {
 	useEffect(()=>{
@@ -16,13 +18,17 @@ function App() {
 			<div className="app-grid">
 				<Header />
 				<main>
-					<BrowserRouter>
+					<Router>
 						<Routes>
-							<Route path="/" element={<h1>Hello, World!</h1>} />
-							<Route path="/blog" element={<Blog />} />
-							<Route path="/about" element={<h1>about!</h1>} />
+							<Route path='/' element={<h1>Hello, World!</h1>} />
+							<Route path='/blog' element={<Blog />}>
+								<Route index element={<PostsList />} />
+								<Route path=':id' element={<Post />} />
+							</Route>
+							<Route path='/about' element={<h1>about!</h1>} />
+							<Route path='*' element={<h1>Nope</h1>} />
 						</Routes>
-					</BrowserRouter>
+					</Router>
 				</main>
 				<Footer />
 			</div>

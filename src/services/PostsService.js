@@ -8,3 +8,10 @@ export async function getAllPosts(){
 		return {error:{title:{rendered:'idk what happened lol'}}}
 	}
 }
+
+export async function getSinglePost(id){
+	const response	= fetch(`/wp-json/wp/v2/posts/${id}`)
+	const data			= (await response).json()
+	const object		= await data
+	return await object
+}
