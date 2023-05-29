@@ -5,6 +5,6 @@ export async function getAllPosts(){
 		const object 		= await data
 		return await object
 	}catch(error){
-		return {error: 'idk what happened lol'}
+		return {error:{title:{rendered:'idk what happened lol'}}}
 	}
 }
