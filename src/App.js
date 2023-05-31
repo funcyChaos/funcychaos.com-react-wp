@@ -1,11 +1,36 @@
 import React, {useEffect} from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Blog from './components/Blog'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Blog from './routes/Blog'
 import './scss/App.scss'
-import PostsList from './components/PostsList'
-import Post from './components/Post'
+import PostsList from './routes/PostsList'
+import Post from './routes/Post'
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <h1>Hello, World!</h1>
+	},
+	{
+		path: "/blog",
+		element: <Blog/>,
+		children: [
+			{
+				index: true, 
+				element: <PostsList/>,
+				loader: ()=>fetch('/wp-json/wp/v2/posts?_embed&per_page=100'),
+			},
+			{
+				path: ":slug",
+				element: <Post/>,
+				loader: ({params})=>fetch(`/wp-json/wp/v2/posts/?slug=${params.slug}`)
+			}
+		],
+	},
+	{ path: "/about", element: <h1>about!</h1> },
+	{ path: "*", element: <h1>Nope</h1>}
+])
 
 function App() {
 	useEffect(()=>{
@@ -18,21 +43,11 @@ function App() {
 			<div className="app-grid">
 				<Header />
 				<main>
-					<Router>
-						<Routes>
-							<Route path='/' element={<h1>Hello, World!</h1>} />
-							<Route path='/blog' element={<Blog />}>
-								<Route index element={<PostsList />} />
-								<Route path=':id' element={<Post />} />
-							</Route>
-							<Route path='/about' element={<h1>about!</h1>} />
-							<Route path='*' element={<h1>Nope</h1>} />
-						</Routes>
-					</Router>
+					<RouterProvider router={router} />
 				</main>
 				<Footer />
 			</div>
     );
 }
 
-export default App;
+export default App
