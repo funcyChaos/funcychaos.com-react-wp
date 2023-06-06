@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, defer } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Blog from './routes/Blog'
@@ -19,7 +20,14 @@ const router = createBrowserRouter([
 			{
 				index: true, 
 				element: <PostsList/>,
-				loader: ()=>fetch('/wp-json/wp/v2/posts?_embed&per_page=100'),
+				// loader: ()=>fetch('/wp-json/wp/v2/posts?_embed&per_page=100'),
+				loader: ()=>{
+					const promise = fetch('/wp-json/wp/v2/posts?_embed&per_page=100')
+
+					return defer({
+						posts: promise,
+					})
+				}
 			},
 			{
 				path: ":slug",
