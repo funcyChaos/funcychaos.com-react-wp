@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Austin Reilly Resume</title>
+
+	<style>
+		*{
+			margin: 0;
+		}
+
+		.grid{
+			min-height: 100vh;
+			display: grid;
+			grid-template-columns: 1fr 3fr;
+			grid-template-rows: 15rem auto;
+			grid-template-areas: 
+				"header header"
+				"aside main"
+			;
+		}
+
+		header{
+			grid-area: header;
+			border: blue dashed;
+			background-color: black;
+			color: white;
+
+			padding: 1rem;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 10px;
+		}
+		header article{display: flex; gap: 20px;}
+
+		header img{
+			width: 100px;
+			border-radius: .5rem;
+		}
+
+		aside{
+			grid-area: aside;
+			background-color: black;
+			border: green dashed;
+		}
+
+		main{
+			grid-area: main;
+			background-color: black;
+			border: gray dashed;
+		}
+	</style>
+</head>
+<body>
+	<div class="grid">
+		<header>
+			<img src="https://drive.google.com/uc?id=16tsybxlAcBNTDkpHnfOOnptNacjFTJG9" alt="Profile Picture">
+			<h1>Austin Reilly</h1>
+			<article>
+				<p>Web Developer</p>
+				<p>Fresno, CA, 93727, United States</p>
+				<p>559-360-0378</p>
+			</article>
+		</header>
+		<aside>
+
+		</aside>
+		<main>
+
+		</main>
+	</div>
+</body>
+</html>
