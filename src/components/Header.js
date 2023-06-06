@@ -10,6 +10,7 @@ function Header(){
 			<h2>funcyChaos.com</h2>
 			<div className="menu">
 				<a href="/">Home</a>
+				<a href="/portfolio">Portfolio</a>
 				<a href="/blog">Blog</a>
 				<a href="/about">About</a>
 			</div>
