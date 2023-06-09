@@ -9,8 +9,10 @@ function PostsList(){
 		<>
 			{
 				posts.map((post, key)=>(
-					<div key={key}>
-						<h1>{post.title.rendered}</h1>
+					<div className='post' key={key}>
+						<a href={post.link}>
+							<h1>{post.title.rendered}</h1>
+						</a>
 						<div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered}} />
 					</div>
 				))

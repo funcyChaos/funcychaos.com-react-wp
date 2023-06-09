@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom'
 function ProjectList(){
 	const projects = useLoaderData()
 	return (
-		<main className='project-list'>
+		<>
 			{
 				projects.map((project, key)=>(
 					<div className='project' key={key}>
@@ -14,7 +14,7 @@ function ProjectList(){
 					</div>
 				))
 			}
-		</main>
+		</>
 	)
 }
 
