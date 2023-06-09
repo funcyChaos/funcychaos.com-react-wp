@@ -11,6 +11,6 @@ add_action('init', function(){
 		'menu_position'	=> 5,
 		'supports'			=> ['title', 'editor', 'excerpt', 'thumbnail'],
 		'show_in_rest'	=> true,
-		'rewrite' 			=> ['slug' => 'projects','with_front' => false],
+		'rewrite' 			=> ['slug' => 'portfolio','with_front' => false],
 	]);
 });

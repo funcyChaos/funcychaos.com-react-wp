@@ -2,18 +2,20 @@ import React, {useEffect} from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Header 			from './components/Header'
 import Footer 			from './components/Footer'
+import Slash 				from './routes/Slash'
 import Blog 				from './routes/blog/Blog'
 import PostsList		from './routes/blog/PostsList'
 import Post					from './routes/blog/Post'
 import Portfolio		from './routes/portfolio/Portfolio'
 import ProjectList	from './routes/portfolio/ProjectList'
 import Project 			from './routes/portfolio/Project'
+import About 				from './routes/About'
 import './scss/App.scss'
 
 const router = createBrowserRouter([
 	{
 		path: 		"/",
-		element:	<h1>Hello, World!</h1>
+		element:	<Slash/>
 	},
 	{
 		path: "/blog",
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: "portfolio",
+		path: "/portfolio",
 		element: <Portfolio/>,
 		children: [
 			{
@@ -47,8 +49,8 @@ const router = createBrowserRouter([
 			}
 		]
 	},
-	{ path: "/about", element: <h1>about!</h1> },
-	{ path: "*", element: <h1>Nope</h1>}
+	{ path: "/about", element: <About/> },
+	{ path: "*", element: <h1>That's not real</h1>}
 ])
 
 function App() {
