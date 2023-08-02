@@ -2,9 +2,7 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 function PostsList(){
-	const posts = useLoaderData()
-	console.log(posts)
-	
+	const posts = useLoaderData()	
 	return (
 		<>
 			{

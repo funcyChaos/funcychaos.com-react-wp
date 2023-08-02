@@ -7,8 +7,9 @@ function Post(){
 	
 	return (
 		<>
+			{/* <div className="aside" onClick={()=>navigate(-1)}>{backTo}</div> */}
 			<h1>{post.title.rendered}</h1>
-			<div dangerouslySetInnerHTML={{__html: post.content.rendered}} />
+			<div className='blog-post' dangerouslySetInnerHTML={{__html: post.content.rendered}} />
 		</>
 	)
 }

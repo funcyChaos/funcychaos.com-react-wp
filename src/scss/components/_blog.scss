@@ -4,3 +4,35 @@ main.blog-list{
 		a{color: white;}
 	}
 }
+
+main.blog-list .blog-post{
+	display: flex;
+	flex-direction: column;
+
+	.wp-block-image{
+		flex: 1 1 200px;
+	}
+
+	.wp-block-image img{
+		max-width: 100%;
+		height: auto;
+	}
+
+	.wp-block-gallery ul{
+		display: flex;
+		flex-wrap: wrap;
+
+		li{flex: 1 1 200px; list-style: none;}
+
+		img{
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+main.project-list{
+	.project{
+		a{color: white;}
+	}
+}

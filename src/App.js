@@ -55,9 +55,12 @@ const router = createBrowserRouter([
 
 function App() {
 	useEffect(()=>{
-		const loc = window.location.pathname.substring(1)
+		let loc = window.location.pathname.substring(1)
 		if(!loc)document.title = 'funcyChaos'
-		else document.title = `fc-${loc}`
+		else{
+			loc = loc.substring(0, loc.length-1)
+			document.title = `fc-${loc}`
+		}
 	}, [])
 
     return (
