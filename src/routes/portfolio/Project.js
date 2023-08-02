@@ -6,10 +6,10 @@ function Post(){
 	console.log(post)
 	
 	return (
-		<>
+		<main>
 			<h1>{post.title.rendered}</h1>
 			<div dangerouslySetInnerHTML={{__html: post.content.rendered}} />
-		</>
+		</main>
 	)
 }
 
